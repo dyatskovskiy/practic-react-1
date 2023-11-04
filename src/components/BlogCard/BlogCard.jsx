@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import { formatDataToNow } from "helpers/formatDataToNow";
+
 import {
   Card,
   CardBody,
@@ -38,10 +41,20 @@ export const BlogCard = ({
           <Avatar src={avatar} alt={userName} />
           <UserInfo>
             <UserName>{userName}</UserName>
-            <Date>{postedAt}</Date>
+            <Date>{formatDataToNow(postedAt)}</Date>
           </UserInfo>
         </UserBox>
       </CardFooter>
     </Card>
   );
+};
+
+BlogCard.propTypes = {
+  poster: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  postedAt: PropTypes.string.isRequired,
 };
